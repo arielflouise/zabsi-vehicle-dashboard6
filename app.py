@@ -9,8 +9,7 @@ from PIL import Image
 
 st.set_page_config(page_title="Zabsi Vehicle Control", page_icon="🛻", layout="wide")
 
-# --- COMPANY LOGO (JPEG SUPPORT) ---
-# Try to load local logo (supports .jpg, .jpeg, .png)
+# --- COMPANY LOGO WITH BETTER DISPLAY ---
 try:
     # Try different common extensions
     logo_file = None
@@ -23,13 +22,13 @@ try:
             continue
     
     if logo_file:
-        # Resize logo
-        logo = logo.resize((150, 150))
+        # Better resizing with high quality
+        logo = logo.resize((180, 180), Image.Resampling.LANCZOS)  # Better quality
         
-        # Display logo and title in columns
+        # Display logo with improved settings
         col1, col2 = st.columns([1, 5])
         with col1:
-            st.image(logo, width=120)
+            st.image(logo, width=150, use_container_width=False)  # Fixed width
         with col2:
             st.title("📊 ZABSI Fleet, Booking & Compliance System")
             st.markdown("Sistem Log Penggunaan Kenderaan dan Pemantauan Tarikh Dokumen Syarikat secara Live.")
