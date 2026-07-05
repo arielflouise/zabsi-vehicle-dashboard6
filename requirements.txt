@@ -1,0 +1,6 @@
+git+https://github.com/streamlit/gsheets-connection
+streamlit
+pandas
+gspread
+google-auth
+oauth2client
